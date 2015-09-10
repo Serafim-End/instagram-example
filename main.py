@@ -30,9 +30,15 @@ def images_json():
                                       min_timestamp=None, max_timestamp=None, distance=5000)
 
     images = {}
+    images_array = []
+    images_id = []
+
     for media in json_locations:
-        images["images"] = media.images['standart_resolution'].url
-        images["media_id"] = media.id
+        images_array.append(media.images['standard_resolution'].url)
+        images_id.append(media.id)
+
+    images["images"] = images_array
+    images["media_id"] = images_id
 
     return simplejson.dumps(images)
 
