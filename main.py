@@ -31,7 +31,8 @@ def images_json():
 
     images = {}
     for media in json_locations:
-        images[media.id] = media.images['standard_resolution'].url
+        images["images"] = media.images['standart_resolution'].url
+        images["media_id"] = media.id
 
     return simplejson.dumps(images)
 
